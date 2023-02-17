@@ -59,6 +59,12 @@ Thumbs.db
 # /db/
 /db/import
 
+# /conf/
+/conf/import/char_conf.txt
+/conf/import/inter_conf.txt
+/conf/import/map_conf.txt
+/conf/msg_conf/import
+
 # /log/
 /log/*.log
 /log/*.leaks
