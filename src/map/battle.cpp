@@ -2097,13 +2097,13 @@ int64 battle_addmastery(struct map_session_data *sd,struct block_list *target,in
 #endif
 		case W_DAGGER:
 			if((skill = pc_checkskill(sd,SM_SWORD)) > 0)
-				damage += (skill * 4);
+				damage += (skill * 6);
 			if((skill = pc_checkskill(sd,GN_TRAINING_SWORD)) > 0)
 				damage += skill * 10;
 			break;
 		case W_2HSWORD:
 			if((skill = pc_checkskill(sd,SM_TWOHAND)) > 0)
-				damage += (skill * 4);
+				damage += (skill * 6);
 			break;
 		case W_1HSPEAR:
 		case W_2HSPEAR:
@@ -3936,14 +3936,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	switch(skill_id) {
 		case SM_BASH:
 		case MS_BASH:
-			skillratio += 30 * skill_lv;
+			skillratio += 40 * skill_lv;
 			break;
 		case SM_MAGNUM:
 		case MS_MAGNUM:
 			if(wd->miscflag == 1)
-				skillratio += 20 * skill_lv; //Inner 3x3 circle takes 100%+20%*level damage [Playtester]
+				skillratio += 30 * skill_lv; //Inner 3x3 circle takes 100%+20%*level damage [Playtester]
 			else
-				skillratio += 10 * skill_lv; //Outer 5x5 circle takes 100%+10%*level damage [Playtester]
+				skillratio += 15 * skill_lv; //Outer 5x5 circle takes 100%+10%*level damage [Playtester]
 			break;
 		case MC_MAMMONITE:
 			skillratio += 50 * skill_lv;
