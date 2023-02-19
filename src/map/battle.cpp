@@ -2097,12 +2097,14 @@ int64 battle_addmastery(struct map_session_data *sd,struct block_list *target,in
 #endif
 		case W_DAGGER:
 			if((skill = pc_checkskill(sd,SM_SWORD)) > 0)
+				// SM_SWORD_BLUE
 				damage += (skill * 6);
 			if((skill = pc_checkskill(sd,GN_TRAINING_SWORD)) > 0)
 				damage += skill * 10;
 			break;
 		case W_2HSWORD:
 			if((skill = pc_checkskill(sd,SM_TWOHAND)) > 0)
+				// W_2HSWORD_BLUE
 				damage += (skill * 6);
 			break;
 		case W_1HSPEAR:
@@ -3936,11 +3938,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	switch(skill_id) {
 		case SM_BASH:
 		case MS_BASH:
+			// SM_BASH_BLUE
 			skillratio += 40 * skill_lv;
 			break;
 		case SM_MAGNUM:
 		case MS_MAGNUM:
 			if(wd->miscflag == 1)
+				// SM_MAGNUM_BLUE
 				skillratio += 30 * skill_lv; //Inner 3x3 circle takes 100%+20%*level damage [Playtester]
 			else
 				skillratio += 15 * skill_lv; //Outer 5x5 circle takes 100%+10%*level damage [Playtester]
@@ -6973,27 +6977,34 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 
 				switch(skill_id) {
 					case MG_NAPALMBEAT:
-						skillratio += -30 + 10 * skill_lv;
+						// MG_NAPALMBEAT_BLUE
+						skillratio += -50 + 50 * skill_lv;
 						break;
 					case MG_FIREBALL:
 #ifdef RENEWAL
-						skillratio += 40 + 20 * skill_lv;
+						// MG_FIREBALL_BLUE
+						skillratio += -100 + 100 * skill_lv;
 						if(ad.miscflag == 2) //Enemies at the edge of the area will take 75% of the damage
 							skillratio = skillratio * 3 / 4;
 #else
-						skillratio += -30 + 10 * skill_lv;
+						skillratio += -50 + 50 * skill_lv;
 #endif
 						break;
 					case MG_SOULSTRIKE:
+						// MG_SOULSTRIKE_BLUE
+						skillratio += 50;
 						if (battle_check_undead(tstatus->race,tstatus->def_ele))
 							skillratio += 5 * skill_lv;
 						break;
 					case MG_FIREWALL:
-						skillratio -= 50;
+						// MG_FIREWALL_BLUE
+						skillratio += 50;
 						break;
 					case MG_FIREBOLT:
 					case MG_COLDBOLT:
 					case MG_LIGHTNINGBOLT:
+						// MG_COLDBOLT_BLUE
+						skillratio += 50;
 						if (sc) {
 							if ((skill_id == MG_FIREBOLT && sc->data[SC_FLAMETECHNIC_OPTION]) ||
 								(skill_id == MG_COLDBOLT && sc->data[SC_COLD_FORCE_OPTION]) ||
@@ -7011,10 +7022,12 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case MG_THUNDERSTORM:
 						// in Renewal Thunder Storm boost is 100% (in pre-re, 80%)
 #ifndef RENEWAL
-						skillratio -= 20;
+						// MG_THUNDERSTORM_BLUE
+						skillratio += 50;
 #endif
 						break;
 					case MG_FROSTDIVER:
+						// MG_FROSTDIVER_BLUE
 						skillratio += 10 * skill_lv;
 						break;
 					case AL_HOLYLIGHT:

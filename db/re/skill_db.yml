@@ -409,25 +409,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 9
+          Amount: 5
         - Level: 2
-          Amount: 9
+          Amount: 6
         - Level: 3
-          Amount: 9
+          Amount: 7
         - Level: 4
-          Amount: 12
+          Amount: 8
         - Level: 5
-          Amount: 12
+          Amount: 9
         - Level: 6
-          Amount: 12
+          Amount: 10
         - Level: 7
-          Amount: 15
+          Amount: 11
         - Level: 8
-          Amount: 15
+          Amount: 12
         - Level: 9
-          Amount: 15
+          Amount: 13
         - Level: 10
-          Amount: 18
+          Amount: 14
   - Id: 12
     Name: MG_SAFETYWALL
     Description: Safety Wall
@@ -462,27 +462,28 @@ Body:
         Time: 640
       - Level: 10
         Time: 320
+    # MG_SAFETYWALL_BLUE
     Duration1:
       - Level: 1
-        Time: 5000
-      - Level: 2
         Time: 10000
-      - Level: 3
+      - Level: 2
         Time: 15000
-      - Level: 4
+      - Level: 3
         Time: 20000
-      - Level: 5
+      - Level: 4
         Time: 25000
-      - Level: 6
+      - Level: 5
         Time: 30000
-      - Level: 7
+      - Level: 6
         Time: 35000
-      - Level: 8
+      - Level: 7
         Time: 40000
-      - Level: 9
+      - Level: 8
         Time: 45000
-      - Level: 10
+      - Level: 9
         Time: 50000
+      - Level: 10
+        Time: 55000
     FixedCastTime:
       - Level: 1
         Time: 800
@@ -528,7 +529,7 @@ Body:
           Amount: 40
       ItemCost:
         - Item: Blue_Gemstone
-          Amount: 1
+          Amount: 0
     Unit:
       Id: Safetywall
       Interval: -1
@@ -546,27 +547,28 @@ Body:
       IsAutoShadowSpell: true
     Range: 9
     Hit: Multi_Hit
+    # MG_SOULSTRIKE_BLUE
     HitCount:
       - Level: 1
-        Count: 1
+        Count: 3
       - Level: 2
-        Count: 1
+        Count: 3
       - Level: 3
-        Count: 2
+        Count: 4
       - Level: 4
-        Count: 2
+        Count: 4
       - Level: 5
-        Count: 3
+        Count: 5
       - Level: 6
-        Count: 3
+        Count: 5
       - Level: 7
-        Count: 4
+        Count: 6
       - Level: 8
-        Count: 4
+        Count: 6
       - Level: 9
-        Count: 5
+        Count: 7
       - Level: 10
-        Count: 5
+        Count: 7
     Element: Ghost
     CopyFlags:
       Skill:
@@ -579,25 +581,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 18
+          Amount: 5
         - Level: 2
-          Amount: 14
+          Amount: 6
         - Level: 3
-          Amount: 24
+          Amount: 7
         - Level: 4
-          Amount: 20
+          Amount: 8
         - Level: 5
-          Amount: 30
+          Amount: 9
         - Level: 6
-          Amount: 26
+          Amount: 10
         - Level: 7
-          Amount: 36
+          Amount: 11
         - Level: 8
-          Amount: 32
+          Amount: 12
         - Level: 9
-          Amount: 42
+          Amount: 13
         - Level: 10
-          Amount: 38
+          Amount: 14
   - Id: 14
     Name: MG_COLDBOLT
     Description: Cold Bolt
@@ -608,27 +610,28 @@ Body:
       IsAutoShadowSpell: true
     Range: 9
     Hit: Multi_Hit
+    # MG_COLDBOLT_BLUE
     HitCount:
       - Level: 1
-        Count: 1
-      - Level: 2
-        Count: 2
-      - Level: 3
         Count: 3
-      - Level: 4
+      - Level: 2
         Count: 4
-      - Level: 5
+      - Level: 3
         Count: 5
-      - Level: 6
+      - Level: 4
         Count: 6
-      - Level: 7
+      - Level: 5
         Count: 7
-      - Level: 8
+      - Level: 6
         Count: 8
-      - Level: 9
+      - Level: 7
         Count: 9
-      - Level: 10
+      - Level: 8
         Count: 10
+      - Level: 9
+        Count: 11
+      - Level: 10
+        Count: 12
     Element: Water
     CopyFlags:
       Skill:
@@ -681,25 +684,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 12
+          Amount: 6
         - Level: 2
-          Amount: 14
+          Amount: 7
         - Level: 3
-          Amount: 16
+          Amount: 8
         - Level: 4
-          Amount: 18
+          Amount: 9
         - Level: 5
-          Amount: 20
+          Amount: 10
         - Level: 6
-          Amount: 22
+          Amount: 11
         - Level: 7
-          Amount: 24
+          Amount: 12
         - Level: 8
-          Amount: 26
+          Amount: 13
         - Level: 9
-          Amount: 28
+          Amount: 14
         - Level: 10
-          Amount: 30
+          Amount: 15
   - Id: 15
     Name: MG_FROSTDIVER
     Description: Frost Diver
@@ -745,26 +748,27 @@ Body:
     FixedCastTime: 160
     Requires:
       SpCost:
+        # MG_FROSTDIVER_BLUE
         - Level: 1
-          Amount: 25
+          Amount: 10
         - Level: 2
-          Amount: 24
+          Amount: 10
         - Level: 3
-          Amount: 23
+          Amount: 10
         - Level: 4
-          Amount: 22
+          Amount: 10
         - Level: 5
-          Amount: 21
+          Amount: 10
         - Level: 6
-          Amount: 20
+          Amount: 10
         - Level: 7
-          Amount: 19
+          Amount: 10
         - Level: 8
-          Amount: 18
+          Amount: 10
         - Level: 9
-          Amount: 17
+          Amount: 10
         - Level: 10
-          Amount: 16
+          Amount: 10
     Status: Freeze
   - Id: 16
     Name: MG_STONECURSE
@@ -785,29 +789,30 @@ Body:
     FixedCastTime: 200
     Requires:
       SpCost:
+        # MG_STONECURSE_BLUE
         - Level: 1
-          Amount: 25
+          Amount: 10
         - Level: 2
-          Amount: 24
+          Amount: 10
         - Level: 3
-          Amount: 23
+          Amount: 10
         - Level: 4
-          Amount: 22
+          Amount: 10
         - Level: 5
-          Amount: 21
+          Amount: 10
         - Level: 6
-          Amount: 20
+          Amount: 10
         - Level: 7
-          Amount: 19
+          Amount: 10
         - Level: 8
-          Amount: 18
+          Amount: 10
         - Level: 9
-          Amount: 17
+          Amount: 10
         - Level: 10
-          Amount: 16
+          Amount: 10
       ItemCost:
         - Item: Red_Gemstone
-          Amount: 1
+          Amount: 0
     Status: StoneWait
   - Id: 17
     Name: MG_FIREBALL
@@ -834,7 +839,8 @@ Body:
     AfterCastActDelay: 700
     FixedCastTime: 200
     Requires:
-      SpCost: 25
+      # MG_FIREBALL_BLUE
+      SpCost: 20
   - Id: 18
     Name: MG_FIREWALL
     Description: Fire Wall
@@ -847,7 +853,8 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Fire
-    ActiveInstance: 3
+    # MG_FIREWALL_BLUE
+    ActiveInstance: 5
     Knockback: 2
     CopyFlags:
       Skill:
@@ -877,25 +884,25 @@ Body:
         Time: 560
     Duration1:
       - Level: 1
-        Time: 5000
-      - Level: 2
-        Time: 6000
-      - Level: 3
-        Time: 7000
-      - Level: 4
-        Time: 8000
-      - Level: 5
-        Time: 9000
-      - Level: 6
-        Time: 10000
-      - Level: 7
         Time: 11000
-      - Level: 8
+      - Level: 2
         Time: 12000
-      - Level: 9
+      - Level: 3
         Time: 13000
-      - Level: 10
+      - Level: 4
         Time: 14000
+      - Level: 5
+        Time: 15000
+      - Level: 6
+        Time: 16000
+      - Level: 7
+        Time: 17000
+      - Level: 8
+        Time: 18000
+      - Level: 9
+        Time: 19000
+      - Level: 10
+        Time: 20000
     FixedCastTime:
       - Level: 1
         Time: 400
@@ -918,7 +925,7 @@ Body:
       - Level: 10
         Time: 140
     Requires:
-      SpCost: 40
+      SpCost: 20
     Unit:
       Id: Firewall
       Layout: -1
@@ -939,25 +946,25 @@ Body:
     Hit: Multi_Hit
     HitCount:
       - Level: 1
-        Count: 1
-      - Level: 2
-        Count: 2
-      - Level: 3
         Count: 3
-      - Level: 4
+      - Level: 2
         Count: 4
-      - Level: 5
+      - Level: 3
         Count: 5
-      - Level: 6
+      - Level: 4
         Count: 6
-      - Level: 7
+      - Level: 5
         Count: 7
-      - Level: 8
+      - Level: 6
         Count: 8
-      - Level: 9
+      - Level: 7
         Count: 9
-      - Level: 10
+      - Level: 8
         Count: 10
+      - Level: 9
+        Count: 11
+      - Level: 10
+        Count: 12
     Element: Fire
     CopyFlags:
       Skill:
@@ -1010,25 +1017,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 12
+          Amount: 6
         - Level: 2
-          Amount: 14
+          Amount: 7
         - Level: 3
-          Amount: 16
+          Amount: 8
         - Level: 4
-          Amount: 18
+          Amount: 9
         - Level: 5
-          Amount: 20
+          Amount: 10
         - Level: 6
-          Amount: 22
+          Amount: 11
         - Level: 7
-          Amount: 24
+          Amount: 12
         - Level: 8
-          Amount: 26
+          Amount: 13
         - Level: 9
-          Amount: 28
+          Amount: 14
         - Level: 10
-          Amount: 30
+          Amount: 15
   - Id: 20
     Name: MG_LIGHTNINGBOLT
     Description: Lightning Bolt
@@ -1041,25 +1048,25 @@ Body:
     Hit: Multi_Hit
     HitCount:
       - Level: 1
-        Count: 1
-      - Level: 2
-        Count: 2
-      - Level: 3
         Count: 3
-      - Level: 4
+      - Level: 2
         Count: 4
-      - Level: 5
+      - Level: 3
         Count: 5
-      - Level: 6
+      - Level: 4
         Count: 6
-      - Level: 7
+      - Level: 5
         Count: 7
-      - Level: 8
+      - Level: 6
         Count: 8
-      - Level: 9
+      - Level: 7
         Count: 9
-      - Level: 10
+      - Level: 8
         Count: 10
+      - Level: 9
+        Count: 11
+      - Level: 10
+        Count: 12
     Element: Wind
     CopyFlags:
       Skill:
@@ -1112,25 +1119,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 12
+          Amount: 6
         - Level: 2
-          Amount: 14
+          Amount: 7
         - Level: 3
-          Amount: 16
+          Amount: 8
         - Level: 4
-          Amount: 18
+          Amount: 9
         - Level: 5
-          Amount: 20
+          Amount: 10
         - Level: 6
-          Amount: 22
+          Amount: 11
         - Level: 7
-          Amount: 24
+          Amount: 12
         - Level: 8
-          Amount: 26
+          Amount: 13
         - Level: 9
-          Amount: 28
+          Amount: 14
         - Level: 10
-          Amount: 30
+          Amount: 15
   - Id: 21
     Name: MG_THUNDERSTORM
     Description: Thunderstorm
@@ -1142,26 +1149,27 @@ Body:
     Range: 9
     Hit: Multi_Hit
     HitCount:
+    # MG_THUNDERSTORM_BLUE
       - Level: 1
-        Count: 1
-      - Level: 2
-        Count: 2
-      - Level: 3
         Count: 3
-      - Level: 4
+      - Level: 2
         Count: 4
-      - Level: 5
+      - Level: 3
         Count: 5
-      - Level: 6
+      - Level: 4
         Count: 6
-      - Level: 7
+      - Level: 5
         Count: 7
-      - Level: 8
+      - Level: 6
         Count: 8
-      - Level: 9
+      - Level: 7
         Count: 9
-      - Level: 10
+      - Level: 8
         Count: 10
+      - Level: 9
+        Count: 11
+      - Level: 10
+        Count: 12
     Element: Wind
     CopyFlags:
       Skill:
@@ -1215,25 +1223,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 29
+          Amount: 10
         - Level: 2
-          Amount: 34
+          Amount: 12
         - Level: 3
-          Amount: 39
+          Amount: 14
         - Level: 4
-          Amount: 44
+          Amount: 16
         - Level: 5
-          Amount: 49
+          Amount: 18
         - Level: 6
-          Amount: 54
+          Amount: 20
         - Level: 7
-          Amount: 59
+          Amount: 22
         - Level: 8
-          Amount: 64
+          Amount: 24
         - Level: 9
-          Amount: 69
+          Amount: 26
         - Level: 10
-          Amount: 74
+          Amount: 28
     Unit:
       Id: Dummyskill
       Range:

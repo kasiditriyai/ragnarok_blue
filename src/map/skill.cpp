@@ -1440,6 +1440,7 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 		break;
 
 	case MG_FROSTDIVER:
+		// MG_FROSTDIVER_BLUE
 		if(!sc_start(src,bl,SC_FREEZE,min(skill_lv*3+35,skill_lv+60),skill_lv,skill_get_time2(skill_id,skill_lv)) && sd)
 			clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
 		break;
@@ -8764,7 +8765,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			if (sd && sd->sc.data[SC_PETROLOGY_OPTION])
 				brate = sd->sc.data[SC_PETROLOGY_OPTION]->val3;
 
-			if (sc_start2(src, bl, type, (skill_lv * 4 + 20) + brate, skill_lv, src->id, skill_get_time2(skill_id, skill_lv), skill_get_time(skill_id, skill_lv)))
+			// MG_STONECURSE_BLUE
+			if (sc_start2(src, bl, type, (skill_lv * 5 + 40) + brate, skill_lv, src->id, skill_get_time2(skill_id, skill_lv), skill_get_time(skill_id, skill_lv)))
 				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			else if(sd) {
 				clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
@@ -14378,7 +14380,8 @@ std::shared_ptr<s_skill_unit_group> skill_unitsetting(struct block_list *src, ui
 		val3 = 300 * skill_lv + 65 * ( status->int_ +  status_get_lv(src) ) + status->max_sp; //nb hp
 		break;
 	case MG_SAFETYWALL:
-		val2 = skill_lv + 1;
+		// MG_SAFETYWALL_BLUE
+		val2 = skill_lv * 3;
 #ifdef RENEWAL
 		val3 = 300 * skill_lv + 65 * (status->int_ + status_get_lv(src)) + status->max_sp;
 #endif
@@ -14386,7 +14389,8 @@ std::shared_ptr<s_skill_unit_group> skill_unitsetting(struct block_list *src, ui
 	case MG_FIREWALL:
 		if(sc && sc->data[SC_VIOLENTGALE])
 			limit = limit*3/2;
-		val2 = 4+skill_lv;
+		// MG_FIREWALL_BLUE
+		val2 = 10+skill_lv;
 		break;
 
 	case AL_WARP:

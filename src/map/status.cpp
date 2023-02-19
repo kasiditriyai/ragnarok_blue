@@ -4553,6 +4553,7 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 
 		val = 0;
 		if( (skill=pc_checkskill(sd,SM_RECOVERY)) > 0 )
+			// SM_RECOVERY_BLUE
 			val += skill*20 + skill*status->max_hp/250;
 
 		if (sc && sc->count) {
@@ -4564,7 +4565,8 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 
 		val = 0;
 		if( (skill=pc_checkskill(sd,MG_SRECOVERY)) > 0 )
-			val += skill*3 + skill*status->max_sp/500;
+			// MG_SRECOVERY_BLUE
+			val += skill*10 + skill*status->max_sp/250;
 		if( (skill=pc_checkskill(sd,NJ_NINPOU)) > 0 )
 			val += skill*3 + skill*status->max_sp/500;
 		if( (skill=pc_checkskill(sd,WM_LESSON)) > 0 )
