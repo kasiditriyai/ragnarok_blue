@@ -2574,7 +2574,8 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 				bonus += sc->data[SC_GLASTHEIM_HPSP]->val1;
 #ifdef RENEWAL
 			if (sc->data[SC_ANGELUS])
-				bonus += sc->data[SC_ANGELUS]->val1 * 50;
+				// AL_ANGELUS_BLUE
+				bonus += sc->data[SC_ANGELUS]->val1 * 100;
 #endif
 		}
 	} else if (type == STATUS_BONUS_RATE) {
@@ -3585,7 +3586,8 @@ int status_calc_pc_sub(struct map_session_data* sd, uint8 opt)
 	if((skill=pc_checkskill(sd,SA_DRAGONOLOGY))>0)
 		base_status->int_ += (skill+1)/2; // +1 INT / 2 lv
 	if((skill=pc_checkskill(sd,AC_OWL))>0)
-		base_status->dex += skill;
+		// AC_OWL_BLUE
+		base_status->dex += skill * 2;
 	if((skill = pc_checkskill(sd,RA_RESEARCHTRAP))>0)
 		base_status->int_ += skill;
 	if (pc_checkskill(sd, SU_POWEROFLAND) > 0)
@@ -3809,7 +3811,8 @@ int status_calc_pc_sub(struct map_session_data* sd, uint8 opt)
 
 	// Absolute modifiers from passive skills
 	if((skill=pc_checkskill(sd,TF_MISS))>0)
-		base_status->flee += skill*(sd->class_&JOBL_2 && (sd->class_&MAPID_BASEMASK) == MAPID_THIEF? 4 : 3);
+		// TF_MISS_BLUE
+		base_status->flee += skill*(sd->class_&JOBL_2 && (sd->class_&MAPID_BASEMASK) == MAPID_THIEF? 6 : 5);
 	if((skill=pc_checkskill(sd,MO_DODGE))>0)
 		base_status->flee += (skill*3)>>1;
 	if (pc_checkskill(sd, SU_POWEROFLIFE) > 0)
@@ -5776,7 +5779,8 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += sc->data[SC_NEN]->val1;
 	if(sc->data[SC_BLESSING]) {
 		if(sc->data[SC_BLESSING]->val2)
-			str += sc->data[SC_BLESSING]->val2;
+			// AL_BLESSING_BLUE
+			str += (sc->data[SC_BLESSING]->val2 * 2);
 		else
 			str -= str / 2;
 	}
@@ -5851,13 +5855,15 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	if(sc->data[SC_TRUESIGHT])
 		agi += 5;
 	if(sc->data[SC_INCREASEAGI])
-		agi += sc->data[SC_INCREASEAGI]->val2;
+		// AL_INCAGI_BLUE
+		agi += (sc->data[SC_INCREASEAGI]->val2 * 2);
 	if(sc->data[SC_INCREASING])
 		agi += 4; // Added based on skill updates [Reddozen]
 	if(sc->data[SC_2011RWC_SCROLL])
 		agi += sc->data[SC_2011RWC_SCROLL]->val1;
 	if(sc->data[SC_DECREASEAGI])
-		agi -= sc->data[SC_DECREASEAGI]->val2;
+		// AL_DECAGI_BLUE
+		agi -= (sc->data[SC_DECREASEAGI]->val2 * 2);
 	if(sc->data[SC_QUAGMIRE])
 		agi -= sc->data[SC_QUAGMIRE]->val2;
 	if(sc->data[SC_SUITON] && sc->data[SC_SUITON]->val3)
@@ -6006,7 +6012,8 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		int_ += 5;
 	if(sc->data[SC_BLESSING]) {
 		if (sc->data[SC_BLESSING]->val2)
-			int_ += sc->data[SC_BLESSING]->val2;
+			// AL_BLESSING_BLUE
+			int_ += (sc->data[SC_BLESSING]->val2 * 2);
 		else
 			int_ -= int_ / 2;
 	}
@@ -6097,7 +6104,8 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex -= sc->data[SC_QUAGMIRE]->val2;
 	if(sc->data[SC_BLESSING]) {
 		if (sc->data[SC_BLESSING]->val2)
-			dex += sc->data[SC_BLESSING]->val2;
+			// AL_BLESSING_BLUE
+			dex += (sc->data[SC_BLESSING]->val2 * 2);
 		else
 			dex -= dex / 2;
 	}
@@ -6752,7 +6760,8 @@ static signed short status_calc_hit(struct block_list *bl, struct status_change 
 		hit += sc->data[SC_MTF_ASPD]->val2;
 #ifdef RENEWAL
 	if (sc->data[SC_BLESSING])
-		hit += sc->data[SC_BLESSING]->val1 * 2;
+		// AL_BLESSING_BLUE
+		hit += sc->data[SC_BLESSING]->val1 * 4;
 	if (sc->data[SC_TWOHANDQUICKEN])
 		hit += sc->data[SC_TWOHANDQUICKEN]->val1 * 2;
 	if (sc->data[SC_ADRENALINE])
@@ -7060,9 +7069,11 @@ static signed short status_calc_def2(struct block_list *bl, struct status_change
 		def2 -= def2 * sc->data[SC_CONCENTRATION]->val4/100;
 #endif
 	if(sc->data[SC_POISON])
-		def2 -= def2 * 25/100;
+		// SC_POISON_BLUE
+		def2 -= def2 * 50/100;
 	if(sc->data[SC_DPOISON])
-		def2 -= def2 * 25/100;
+		// SC_DPOISON_BLUE
+		def2 -= def2 * 50/100;
 	if(sc->data[SC_SKE])
 		def2 -= def2 * 50/100;
 	if(sc->data[SC_PROVOKE])
@@ -7527,7 +7538,8 @@ static short status_calc_aspd(struct block_list *bl, struct status_change *sc, b
 		if (sc->data[SC_WIND_INSIGNIA] && sc->data[SC_WIND_INSIGNIA]->val1 == 2)
 			bonus += 10;
 		if (sc->data[SC_INCREASEAGI])
-			bonus += sc->data[SC_INCREASEAGI]->val1;
+			// AL_INCAGI_BLUE
+			bonus += 2 + sc->data[SC_INCREASEAGI]->val1;
 		if (sc->data[SC_NIBELUNGEN] && sc->data[SC_NIBELUNGEN]->val2 == RINGNBL_ASPDRATE)
 			bonus += 20;
 		if (sc->data[SC_STARSTANCE])
@@ -9858,7 +9870,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			break;
 		case SC_SIGNUMCRUCIS:
-			val2 = 10 + 4*val1; // Def reduction
+			// AL_CRUCIS_BLUE
+			val2 = 10 + 5*val1; // Def reduction
 			tick = INFINITE_TICK;
 			clif_emotion(bl, ET_SWEAT);
 			break;
@@ -10536,7 +10549,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			break;
 		case SC_CONCENTRATE:
-			val2 = 2 + val1;
+			// AC_CONCENTRATION_BLUE
+			val2 = 4 + val1;
 			if (sd) { // Store the card-bonus data that should not count in the %
 				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
 				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
@@ -10579,7 +10593,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
 		case SC_ANGELUS:
-			val2 = 5*val1; // def increase
+			// AL_ANGELUS_BLUE
+			val2 = 5 + 5*val1; // def increase
 			break;
 		case SC_IMPOSITIO:
 			val2 = 5*val1; // WATK/MATK increase

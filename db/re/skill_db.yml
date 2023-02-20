@@ -179,25 +179,25 @@ Body:
     Requires:
       SpCost:
         - Level: 1
-          Amount: 4
+          Amount: 2
         - Level: 2
-          Amount: 4
+          Amount: 2
         - Level: 3
-          Amount: 6
+          Amount: 4
         - Level: 4
-          Amount: 6
+          Amount: 4
         - Level: 5
-          Amount: 8
+          Amount: 6
         - Level: 6
-          Amount: 8
+          Amount: 6
         - Level: 7
-          Amount: 10
+          Amount: 8
         - Level: 8
-          Amount: 10
+          Amount: 8
         - Level: 9
-          Amount: 12
+          Amount: 10
         - Level: 10
-          Amount: 12
+          Amount: 10
       Weapon:
         Fist: true
         Dagger: true
@@ -238,23 +238,23 @@ Body:
         - Level: 1
           Amount: 4
         - Level: 2
-          Amount: 5
+          Amount: 4
         - Level: 3
-          Amount: 6
+          Amount: 4
         - Level: 4
-          Amount: 7
+          Amount: 4
         - Level: 5
-          Amount: 8
+          Amount: 4
         - Level: 6
-          Amount: 9
+          Amount: 8
         - Level: 7
-          Amount: 10
+          Amount: 8
         - Level: 8
-          Amount: 11
+          Amount: 8
         - Level: 9
-          Amount: 12
+          Amount: 8
         - Level: 10
-          Amount: 13
+          Amount: 8
     Status: Provoke
   - Id: 7
     Name: SM_MAGNUM
@@ -301,7 +301,7 @@ Body:
     Duration2: 10000
     Cooldown: 2000
     Requires:
-      SpCost: 20
+      SpCost: 15
     Status: Watk_Element
   - Id: 8
     Name: SM_ENDURE
@@ -357,7 +357,8 @@ Body:
     Element: Fire
     SplashArea: 3
     CastCancel: true
-    Duration1: 10000
+    # MG_SIGHT_BLUE
+    Duration1: 30000
     Requires:
       SpCost: 10
     Status: Sight
@@ -1299,7 +1300,8 @@ Body:
         Plagiarism: true
         Reproduce: true
     CastCancel: true
-    Duration1: 10000
+    # AL_RUWACH_BLUE
+    Duration1: 30000
     Requires:
       SpCost: 10
     Status: Ruwach
@@ -1315,7 +1317,8 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    Duration1: 10000
+    # AL_PNEUMA_BLUE
+    Duration1: 30000
     Requires:
       SpCost: 10
     Unit:
@@ -1383,7 +1386,8 @@ Body:
           Amount: 26
       ItemCost:
         - Item: Blue_Gemstone
-          Amount: 1
+          # AL_WARP_BLUE
+          Amount: 0
     Unit:
       Id: Warp_Active
       AlternateId: Warp_Waiting
@@ -1415,26 +1419,27 @@ Body:
     AfterCastActDelay: 1000
     Requires:
       SpCost:
+        # AL_HEAL_BLUE
         - Level: 1
-          Amount: 13
+          Amount: 5
         - Level: 2
-          Amount: 16
+          Amount: 6
         - Level: 3
-          Amount: 19
+          Amount: 7
         - Level: 4
-          Amount: 22
+          Amount: 8
         - Level: 5
-          Amount: 25
+          Amount: 9
         - Level: 6
-          Amount: 28
+          Amount: 10
         - Level: 7
-          Amount: 31
+          Amount: 11
         - Level: 8
-          Amount: 34
+          Amount: 12
         - Level: 9
-          Amount: 37
+          Amount: 13
         - Level: 10
-          Amount: 40
+          Amount: 14
   - Id: 29
     Name: AL_INCAGI
     Description: Increase AGI
@@ -1450,50 +1455,51 @@ Body:
     CastTime: 800
     AfterCastActDelay: 1000
     Duration1:
+      # AL_INCAGI_BLUE
       - Level: 1
-        Time: 60000
+        Time: 600000
       - Level: 2
-        Time: 80000
+        Time: 600000
       - Level: 3
-        Time: 100000
+        Time: 600000
       - Level: 4
-        Time: 120000
+        Time: 600000
       - Level: 5
-        Time: 140000
+        Time: 600000
       - Level: 6
-        Time: 160000
+        Time: 600000
       - Level: 7
-        Time: 180000
+        Time: 600000
       - Level: 8
-        Time: 200000
+        Time: 600000
       - Level: 9
-        Time: 220000
+        Time: 600000
       - Level: 10
-        Time: 240000
+        Time: 600000
     FixedCastTime: 200
     Requires:
       HpCost: 15
       SpCost:
         - Level: 1
-          Amount: 18
+          Amount: 10
         - Level: 2
-          Amount: 21
+          Amount: 11
         - Level: 3
-          Amount: 24
+          Amount: 12
         - Level: 4
-          Amount: 27
+          Amount: 13
         - Level: 5
-          Amount: 30
+          Amount: 14
         - Level: 6
-          Amount: 33
+          Amount: 15
         - Level: 7
-          Amount: 36
+          Amount: 16
         - Level: 8
-          Amount: 39
+          Amount: 17
         - Level: 9
-          Amount: 42
+          Amount: 18
         - Level: 10
-          Amount: 45
+          Amount: 19
     Status: IncreaseAgi
   - Id: 30
     Name: AL_DECAGI
@@ -1510,51 +1516,52 @@ Body:
     CastTime: 750
     AfterCastActDelay: 1000
     Duration1:
+      # AL_DECAGI
       - Level: 1
-        Time: 40000
+        Time: 600000
       - Level: 2
-        Time: 50000
+        Time: 600000
       - Level: 3
-        Time: 60000
+        Time: 600000
       - Level: 4
-        Time: 70000
+        Time: 600000
       - Level: 5
-        Time: 80000
+        Time: 600000
       - Level: 6
-        Time: 90000
+        Time: 600000
       - Level: 7
-        Time: 100000
+        Time: 600000
       - Level: 8
-        Time: 110000
+        Time: 600000
       - Level: 9
-        Time: 120000
+        Time: 600000
       - Level: 10
-        Time: 130000
+        Time: 600000
       - Level: 11
-        Time: 130000
+        Time: 600000
     FixedCastTime: 250
     Requires:
       SpCost:
         - Level: 1
-          Amount: 15
+          Amount: 10
         - Level: 2
-          Amount: 17
+          Amount: 11
         - Level: 3
-          Amount: 19
+          Amount: 12
         - Level: 4
-          Amount: 21
+          Amount: 13
         - Level: 5
-          Amount: 23
+          Amount: 14
         - Level: 6
-          Amount: 25
+          Amount: 15
         - Level: 7
-          Amount: 27
+          Amount: 16
         - Level: 8
-          Amount: 29
+          Amount: 17
         - Level: 9
-          Amount: 31
+          Amount: 18
         - Level: 10
-          Amount: 33
+          Amount: 19
     Status: DecreaseAgi
   - Id: 31
     Name: AL_HOLYWATER
@@ -1572,7 +1579,7 @@ Body:
     FixedCastTime: 200
     Requires:
       SpCost: 10
-      State: Water
+      # AL_HOLYWATER_BLUE
   - Id: 32
     Name: AL_CRUCIS
     Description: Signum Crucis
@@ -1590,7 +1597,8 @@ Body:
     AfterCastActDelay: 2000
     FixedCastTime: 150
     Requires:
-      SpCost: 35
+      # AL_CRUCIS_BLUE
+      SpCost: 15
     Status: SignumCrucis
   - Id: 33
     Name: AL_ANGELUS
@@ -1608,49 +1616,50 @@ Body:
     CastTime: 350
     AfterCastActDelay: 3500
     Duration1:
+      # AL_ANGELUS_BLUE
       - Level: 1
-        Time: 30000
+        Time: 600000
       - Level: 2
-        Time: 60000
+        Time: 600000
       - Level: 3
-        Time: 90000
+        Time: 600000
       - Level: 4
-        Time: 120000
+        Time: 600000
       - Level: 5
-        Time: 150000
+        Time: 600000
       - Level: 6
-        Time: 180000
+        Time: 600000
       - Level: 7
-        Time: 210000
+        Time: 600000
       - Level: 8
-        Time: 240000
+        Time: 600000
       - Level: 9
-        Time: 270000
+        Time: 600000
       - Level: 10
-        Time: 300000
+        Time: 600000
     FixedCastTime: 150
     Requires:
       SpCost:
         - Level: 1
-          Amount: 23
+          Amount: 10
         - Level: 2
-          Amount: 26
+          Amount: 11
         - Level: 3
-          Amount: 29
+          Amount: 12
         - Level: 4
-          Amount: 32
+          Amount: 13
         - Level: 5
-          Amount: 35
+          Amount: 14
         - Level: 6
-          Amount: 38
+          Amount: 15
         - Level: 7
-          Amount: 41
+          Amount: 16
         - Level: 8
-          Amount: 44
+          Amount: 17
         - Level: 9
-          Amount: 47
+          Amount: 18
         - Level: 10
-          Amount: 50
+          Amount: 19
     Status: Angelus
   - Id: 34
     Name: AL_BLESSING
@@ -1665,48 +1674,49 @@ Body:
     HitCount: 1
     CastCancel: true
     Duration1:
+      # AL_BLESSING_BLUE
       - Level: 1
-        Time: 60000
+        Time: 600000
       - Level: 2
-        Time: 80000
+        Time: 600000
       - Level: 3
-        Time: 100000
+        Time: 600000
       - Level: 4
-        Time: 120000
+        Time: 600000
       - Level: 5
-        Time: 140000
+        Time: 600000
       - Level: 6
-        Time: 160000
+        Time: 600000
       - Level: 7
-        Time: 180000
+        Time: 600000
       - Level: 8
-        Time: 200000
+        Time: 600000
       - Level: 9
-        Time: 220000
+        Time: 600000
       - Level: 10
-        Time: 240000
+        Time: 600000
     Requires:
       SpCost:
         - Level: 1
-          Amount: 28
+          Amount: 10
         - Level: 2
-          Amount: 32
+          Amount: 11
         - Level: 3
-          Amount: 36
+          Amount: 12
         - Level: 4
-          Amount: 40
+          Amount: 13
         - Level: 5
-          Amount: 44
+          Amount: 14
         - Level: 6
-          Amount: 48
+          Amount: 15
         - Level: 7
-          Amount: 52
+          Amount: 16
         - Level: 8
-          Amount: 56
+          Amount: 17
         - Level: 9
-          Amount: 60
+          Amount: 18
         - Level: 10
-          Amount: 64
+          Amount: 19
     Status: Blessing
   - Id: 35
     Name: AL_CURE
@@ -1789,26 +1799,27 @@ Body:
     Requires:
       SpCost: 5
       ZenyCost:
+        # MC_MAMMONITE_BLUE
         - Level: 1
-          Amount: 100
+          Amount: 10
         - Level: 2
-          Amount: 200
+          Amount: 20
         - Level: 3
-          Amount: 300
+          Amount: 30
         - Level: 4
-          Amount: 400
+          Amount: 40
         - Level: 5
-          Amount: 500
+          Amount: 50
         - Level: 6
-          Amount: 600
+          Amount: 60
         - Level: 7
-          Amount: 700
+          Amount: 70
         - Level: 8
-          Amount: 800
+          Amount: 80
         - Level: 9
-          Amount: 900
+          Amount: 90
         - Level: 10
-          Amount: 1000
+          Amount: 100
   - Id: 43
     Name: AC_OWL
     Description: Owl's Eye
@@ -1830,48 +1841,49 @@ Body:
     HitCount: 1
     SplashArea: 3
     Duration1:
+      # AC_CONCENTRATION_BLUE
       - Level: 1
-        Time: 60000
+        Time: 600000
       - Level: 2
-        Time: 80000
+        Time: 600000
       - Level: 3
-        Time: 100000
+        Time: 600000
       - Level: 4
-        Time: 120000
+        Time: 600000
       - Level: 5
-        Time: 140000
+        Time: 600000
       - Level: 6
-        Time: 160000
+        Time: 600000
       - Level: 7
-        Time: 180000
+        Time: 600000
       - Level: 8
-        Time: 200000
+        Time: 600000
       - Level: 9
-        Time: 220000
+        Time: 600000
       - Level: 10
-        Time: 240000
+        Time: 600000
     Requires:
       SpCost:
         - Level: 1
-          Amount: 25
+          Amount: 10
         - Level: 2
-          Amount: 30
+          Amount: 11
         - Level: 3
-          Amount: 35
+          Amount: 12
         - Level: 4
-          Amount: 40
+          Amount: 13
         - Level: 5
-          Amount: 45
+          Amount: 14
         - Level: 6
-          Amount: 50
+          Amount: 15
         - Level: 7
-          Amount: 55
+          Amount: 16
         - Level: 8
-          Amount: 60
+          Amount: 17
         - Level: 9
-          Amount: 65
+          Amount: 18
         - Level: 10
-          Amount: 70
+          Amount: 19
     Status: Concentrate
   - Id: 46
     Name: AC_DOUBLE
@@ -1892,7 +1904,8 @@ Body:
     AfterCastActDelay: 100
     Duration1: 100
     Requires:
-      SpCost: 12
+      # AC_DOUBLE_BLUE
+      SpCost: 10
       Weapon:
         Bow: true
       Ammo:
@@ -1994,26 +2007,27 @@ Body:
     Hit: Single
     HitCount: 1
     Duration1:
+      # TF_HIDING_BLUE
       - Level: 1
-        Time: 30000
+        Time: 600000
       - Level: 2
-        Time: 60000
+        Time: 600000
       - Level: 3
-        Time: 90000
+        Time: 600000
       - Level: 4
-        Time: 120000
+        Time: 600000
       - Level: 5
-        Time: 150000
+        Time: 600000
       - Level: 6
-        Time: 180000
+        Time: 600000
       - Level: 7
-        Time: 210000
+        Time: 600000
       - Level: 8
-        Time: 240000
+        Time: 600000
       - Level: 9
-        Time: 270000
+        Time: 600000
       - Level: 10
-        Time: 300000
+        Time: 600000
     Requires:
       SpCost: 10
     Status: Hiding
@@ -2033,7 +2047,8 @@ Body:
         Reproduce: true
     Duration2: 18000
     Requires:
-      SpCost: 12
+      # TF_POISON_BLUE
+      SpCost: 10
     Status: Poison
   - Id: 53
     Name: TF_DETOXIFY

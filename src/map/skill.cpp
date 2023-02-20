@@ -551,8 +551,9 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 			if (sd && ((skill = pc_checkskill(sd, HP_MEDITATIO)) > 0))
 				hp_bonus += skill * 2;
 #else
-			hp = ((status_get_lv(src) + status_get_int(src)) / 8) * (4 + ((sd ? pc_checkskill(sd, AL_HEAL) : 1) * 8));
-			hp = (hp * (17 + 3 * skill_lv)) / 10;
+			// AL_HEAL_BLUE
+			hp = ((status_get_lv(src) + status_get_int(src)) / 8) * (4 + ((sd ? pc_checkskill(sd, AL_HEAL) : 1) * 16));
+			hp = (hp * (17 + 3 * skill_lv)) / 5;
 #endif
 			break;
 		case SU_FRESHSHRIMP:
@@ -1420,7 +1421,8 @@ int skill_additional_effect(struct block_list* src, struct block_list *bl, uint1
 			skill_lv = pc_checkskill(sd, TF_POISON);
 	case TF_POISON:
 	case AS_SPLASHER:
-		if(!sc_start2(src,bl,SC_POISON,(4*skill_lv+10),skill_lv,src->id,skill_get_time2(skill_id,skill_lv))
+		// TF_POISON_BLUE
+		if(!sc_start2(src,bl,SC_POISON,(4*skill_lv+50),skill_lv,src->id,skill_get_time2(skill_id,skill_lv))
 			&& sd && skill_id==TF_POISON
 		)
 			clif_skill_fail(sd,skill_id,USESKILL_FAIL_LEVEL,0);
@@ -7210,12 +7212,14 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 	case AL_DECAGI:
 	case MER_DECAGI:
 		clif_skill_nodamage (src, bl, skill_id, skill_lv,
-			sc_start(src,bl, type, (50 + skill_lv * 3 + (status_get_lv(src) + sstatus->int_)/5), skill_lv, skill_get_time(skill_id,skill_lv)));
+			// AL_DECAGI_BLUE
+			sc_start(src,bl, type, (60 + skill_lv * 3 + (status_get_lv(src) + sstatus->int_)/5), skill_lv, skill_get_time(skill_id,skill_lv)));
 		break;
 
 	case AL_CRUCIS:
 		if (flag&1)
-			sc_start(src,bl,type, 23+skill_lv*4 +status_get_lv(src) -status_get_lv(bl), skill_lv,skill_get_time(skill_id,skill_lv));
+			// AL_CRUCIS_BLUE
+			sc_start(src,bl,type, 40+skill_lv*5 +status_get_lv(src) -status_get_lv(bl), skill_lv,skill_get_time(skill_id,skill_lv));
 		else {
 			map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR,
 				src, skill_id, skill_lv, tick, flag|BCT_ENEMY|1, skill_castend_nodamage_id);

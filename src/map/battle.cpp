@@ -2052,7 +2052,8 @@ int64 battle_addmastery(struct map_session_data *sd,struct block_list *target,in
 	if((skill = pc_checkskill(sd,AL_DEMONBANE)) > 0 &&
 		target->type == BL_MOB && //This bonus doesn't work against players.
 		(battle_check_undead(status->race,status->def_ele) || status->race == RC_DEMON) )
-		damage += (skill*(int)(3+(sd->status.base_level+1)*0.05));	// submitted by orn
+		// AL_DEMONBANE_BLUE
+		damage += (skill*(int)(6+(sd->status.base_level+1)*0.05));	// submitted by orn
 	if( (skill = pc_checkskill(sd, RA_RANGERMAIN)) > 0 && (status->race == RC_BRUTE || status->race == RC_PLAYER_DORAM || status->race == RC_PLANT || status->race == RC_FISH) )
 		damage += (skill * 5);
 	if( (skill = pc_checkskill(sd,NC_RESEARCHFE)) > 0 && (status->def_ele == ELE_FIRE || status->def_ele == ELE_EARTH) )
@@ -3404,7 +3405,8 @@ static void battle_calc_attack_masteries(struct Damage* wd, struct block_list *s
 #ifdef RENEWAL
 		//General skill masteries
 		if(skill_id == TF_POISON) //Additional ATK from Envenom is treated as mastery type damage [helvetica]
-			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv);
+			// TF_POISON_BLUE
+			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 30 * skill_lv);
 		if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 4);
 		if (skill_id != CR_SHIELDBOOMERANG)
@@ -3807,7 +3809,8 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 				max_rate = sc->data[SC_KAGEMUSYA]->val1 * 10; // Same rate as even levels of TF_DOUBLE
 			else
 #ifdef RENEWAL
-				max_rate = max(7 * skill_lv, sd->bonus.double_rate);
+				// TF_DOUBLE_BLUE
+				max_rate = max(9 * skill_lv, sd->bonus.double_rate);
 #else
 				max_rate = max(5 * skill_lv, sd->bonus.double_rate);
 #endif
@@ -3867,7 +3870,8 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 		case AS_POISONREACT:
 			skill_lv = pc_checkskill(sd, TF_DOUBLE);
 			if (skill_lv > 0) {
-				if(rnd()%100 < (7 * skill_lv)) {
+				// TF_DOUBLE_BLUE
+				if(rnd()%100 < (9 * skill_lv)) {
 					wd->div_++;
 				}
 			}
@@ -3950,19 +3954,22 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 15 * skill_lv; //Outer 5x5 circle takes 100%+10%*level damage [Playtester]
 			break;
 		case MC_MAMMONITE:
-			skillratio += 50 * skill_lv;
+			// MC_MAMMONITE_BLUE
+			skillratio += 100 + 100 * skill_lv;
 			break;
 		case HT_POWER:
 			skillratio += -50 + 8 * sstatus->str;
 			break;
 		case AC_DOUBLE:
 		case MA_DOUBLE:
-			skillratio += 10 * (skill_lv - 1);
+			// AC_DOUBLE_BLUE
+			skillratio += 15 * skill_lv;
 			break;
 		case AC_SHOWER:
 		case MA_SHOWER:
 #ifdef RENEWAL
-			skillratio += 50 + 10 * skill_lv;
+			// AC_SHOWER_BLUE
+			skillratio += 50 + 25 * skill_lv;
 #else
 			skillratio += -25 + 5 * skill_lv;
 #endif
@@ -5748,7 +5755,8 @@ static void battle_calc_defense_reduction(struct Damage* wd, struct block_list *
 #endif
 		if (src->type == BL_MOB && (battle_check_undead(sstatus->race, sstatus->def_ele) || sstatus->race == RC_DEMON) && //This bonus already doesn't work vs players
 			(skill = pc_checkskill(tsd, AL_DP)) > 0)
-			vit_def += (int)(((float)tsd->status.base_level / 25.0 + 3.0) * skill + 0.5);
+			// AL_DP_BLUE
+			vit_def += (int)(((float)tsd->status.base_level / 25.0 + 6.0) * skill + 0.5);
 		if( src->type == BL_MOB && (skill=pc_checkskill(tsd,RA_RANGERMAIN))>0 &&
 			(sstatus->race == RC_BRUTE || sstatus->race == RC_PLAYER_DORAM || sstatus->race == RC_FISH || sstatus->race == RC_PLANT) )
 			vit_def += skill*5;
@@ -7036,7 +7044,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio *= 5; //Does 5x damage include bonuses from other skills?
 						break;
 					case AL_RUWACH:
-						skillratio += 45;
+						// AL_RUWACH_BLUE
+						skillratio += 200;
 						break;
 					case WZ_FROSTNOVA:
 						skillratio += -100 + (100 + skill_lv * 10) * 2 / 3;
